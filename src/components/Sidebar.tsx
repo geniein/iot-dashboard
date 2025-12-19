@@ -20,8 +20,14 @@ export default function Sidebar() {
       items: [
         { icon: LayoutGrid, label: 'Applications', href: '/operations/applications' },
         { icon: Users, label: 'Groups', href: '/operations/groups' },
-        { icon: History, label: 'Pipelines', href: '/operations/pipelines' },
-        { icon: FileText, label: 'Bill Of Materials', href: '/operations/bom' },
+        // { icon: History, label: 'Pipelines', href: '/operations/pipelines' },
+        // { icon: FileText, label: 'Bill Of Materials', href: '/operations/bom' },
+      ]
+    },
+    {
+      title: 'MANAGEMENT',
+      items: [
+        { icon: Users, label: 'Members', href: '/team/member' }
       ]
     },
     {
@@ -35,15 +41,14 @@ export default function Sidebar() {
 
   return (
     <div className="w-64 bg-white border-r h-screen p-4 flex flex-col gap-4 text-sm shrink-0 overflow-y-auto">
-      <div className="font-bold text-2xl text-[#ef4444] px-2 mb-4">FlowFuse</div>
-      
+      <div className="font-bold text-2xl text-[#ef4444] px-2 mb-4">ingenie</div>
+
       {/* Home 버튼 */}
       <Link href="/">
-        <div className={`flex items-center gap-2 p-2 rounded-md transition-colors ${
-          pathname === '/' 
-          ? 'bg-[#3b3a95] text-white font-medium' 
+        <div className={`flex items-center gap-2 p-2 rounded-md transition-colors ${pathname === '/'
+          ? 'bg-[#3b3a95] text-white font-medium'
           : 'text-gray-600 hover:bg-gray-100'
-        }`}>
+          }`}>
           <Home size={18} /> Home
         </div>
       </Link>
@@ -57,11 +62,10 @@ export default function Sidebar() {
               const isActive = pathname === item.href
               return (
                 <Link key={item.href} href={item.href}>
-                  <div className={`flex items-center justify-between p-2 rounded-md transition-colors ${
-                    isActive 
-                    ? 'bg-[#3b3a95] text-white font-medium' 
+                  <div className={`flex items-center justify-between p-2 rounded-md transition-colors ${isActive
+                    ? 'bg-[#3b3a95] text-white font-medium'
                     : 'text-gray-600 hover:bg-gray-100'
-                  }`}>
+                    }`}>
                     <div className="flex items-center gap-2">
                       <item.icon size={18} />
                       {item.label}
